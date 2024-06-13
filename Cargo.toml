@@ -7,5 +7,8 @@ edition = "2021"
 
 [dependencies]
 bend-lang = "0.2.33"
+miette = "7.2.0"
+serde = { version = "1.0.203", features = ["derive"] }
+thiserror = "1.0.61"
 tokio = { version = "1.37.0", features = ["full"] }
 tower-lsp = "0.20.0"
