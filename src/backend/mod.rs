@@ -98,11 +98,11 @@ fn constructor_for_completion_item(
     CompletionItem {
         label: label.to_string(),
         label_details: Some(CompletionItemLabelDetails {
-            detail: Some((&detail).to_string()),
-            description: Some((&detail).to_string()),
+            detail: None,
+            description: Some(label.to_string()),
         }),
         kind: Some(comp_item_kind),
-        detail: None,
+        detail: Some(detail.to_string()),
         documentation: None,
         deprecated: Some(false),
         preselect: Some(true),
