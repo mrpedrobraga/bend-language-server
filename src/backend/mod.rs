@@ -4,10 +4,9 @@ use builtin_completions::BUILTIN_COMPLETIONS;
 use tower_lsp::{
     jsonrpc::Result,
     lsp_types::{
-        CompletionItem, CompletionItemKind, CompletionItemLabelDetails, CompletionOptions,
-        CompletionParams, CompletionResponse, Hover, HoverContents, HoverParams,
-        HoverProviderCapability, InitializeParams, InitializeResult, InitializedParams,
-        MarkedString, MessageType, ServerCapabilities,
+        CompletionItem, CompletionOptions, CompletionParams, CompletionResponse, Hover,
+        HoverContents, HoverParams, HoverProviderCapability, InitializeParams, InitializeResult,
+        InitializedParams, MarkedString, MessageType, ServerCapabilities,
     },
     Client, LanguageServer,
 };
