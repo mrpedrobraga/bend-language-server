@@ -1,14 +1,11 @@
 //! The LSP implementation.
 
-use std::net::ToSocketAddrs;
-
 use tower_lsp::{
     jsonrpc::Result,
     lsp_types::{
-        CompletionItem, CompletionItemKind, CompletionItemKindCapability,
-        CompletionItemLabelDetails, CompletionOptions, CompletionParams, CompletionResponse,
-        Documentation, Hover, HoverContents, HoverParams, HoverProviderCapability,
-        InitializeParams, InitializeResult, InitializedParams, InsertTextFormat, InsertTextMode,
+        CompletionItem, CompletionItemKind, CompletionItemLabelDetails, CompletionOptions,
+        CompletionParams, CompletionResponse, Hover, HoverContents, HoverParams,
+        HoverProviderCapability, InitializeParams, InitializeResult, InitializedParams,
         MarkedString, MessageType, ServerCapabilities,
     },
     Client, LanguageServer,

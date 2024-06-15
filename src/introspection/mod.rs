@@ -9,6 +9,12 @@ pub struct WorkspaceKnowledge {
     file_knowledge: Vec<FileKnowledge>,
 }
 
+impl Default for WorkspaceKnowledge {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl WorkspaceKnowledge {
     pub fn new() -> Self {
         Self {
@@ -26,7 +32,7 @@ impl FileKnowledge {
         FileKnowledge::parse_source(raw.as_str())
     }
 
-    pub fn parse_source<'src>(file_source: &'src str) -> Result<Self> {
+    pub fn parse_source(file_source: &str) -> Result<Self> {
         Ok(FileKnowledge {})
     }
 }
