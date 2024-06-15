@@ -1,1840 +1,6 @@
 Book {
     defs: {
         Name(
-            "Map/empty",
-        ): Definition {
-            name: Name(
-                "Map/empty",
-            ),
-            rules: [
-                Rule {
-                    pats: [],
-                    body: Var {
-                        nam: Name(
-                            "Map/Leaf",
-                        ),
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "Map/get",
-        ): Definition {
-            name: Name(
-                "Map/get",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "map",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "key",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Mat {
-                        bnd: Some(
-                            Name(
-                                "map",
-                            ),
-                        ),
-                        arg: Var {
-                            nam: Name(
-                                "map",
-                            ),
-                        },
-                        with_bnd: [],
-                        with_arg: [],
-                        arms: [
-                            (
-                                Some(
-                                    Name(
-                                        "Map/Leaf",
-                                    ),
-                                ),
-                                [],
-                                Fan {
-                                    fan: Tup,
-                                    tag: Static,
-                                    els: [
-                                        Era,
-                                        Var {
-                                            nam: Name(
-                                                "map",
-                                            ),
-                                        },
-                                    ],
-                                },
-                            ),
-                            (
-                                Some(
-                                    Name(
-                                        "Map/Node",
-                                    ),
-                                ),
-                                [],
-                                Swt {
-                                    bnd: Some(
-                                        Name(
-                                            "_",
-                                        ),
-                                    ),
-                                    arg: Oper {
-                                        opr: EQ,
-                                        fst: Num {
-                                            val: U24(
-                                                0,
-                                            ),
-                                        },
-                                        snd: Var {
-                                            nam: Name(
-                                                "key",
-                                            ),
-                                        },
-                                    },
-                                    with_bnd: [],
-                                    with_arg: [],
-                                    pred: Some(
-                                        Name(
-                                            "_-1",
-                                        ),
-                                    ),
-                                    arms: [
-                                        Swt {
-                                            bnd: Some(
-                                                Name(
-                                                    "_",
-                                                ),
-                                            ),
-                                            arg: Oper {
-                                                opr: REM,
-                                                fst: Var {
-                                                    nam: Name(
-                                                        "key",
-                                                    ),
-                                                },
-                                                snd: Num {
-                                                    val: U24(
-                                                        2,
-                                                    ),
-                                                },
-                                            },
-                                            with_bnd: [],
-                                            with_arg: [],
-                                            pred: Some(
-                                                Name(
-                                                    "_-1",
-                                                ),
-                                            ),
-                                            arms: [
-                                                Let {
-                                                    pat: Fan(
-                                                        Tup,
-                                                        Static,
-                                                        [
-                                                            Var(
-                                                                Some(
-                                                                    Name(
-                                                                        "got",
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            Var(
-                                                                Some(
-                                                                    Name(
-                                                                        "rest",
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ],
-                                                    ),
-                                                    val: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: Var {
-                                                                nam: Name(
-                                                                    "Map/get",
-                                                                ),
-                                                            },
-                                                            arg: Var {
-                                                                nam: Name(
-                                                                    "map.left",
-                                                                ),
-                                                            },
-                                                        },
-                                                        arg: Oper {
-                                                            opr: DIV,
-                                                            fst: Var {
-                                                                nam: Name(
-                                                                    "key",
-                                                                ),
-                                                            },
-                                                            snd: Num {
-                                                                val: U24(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    nxt: Fan {
-                                                        fan: Tup,
-                                                        tag: Static,
-                                                        els: [
-                                                            Var {
-                                                                nam: Name(
-                                                                    "got",
-                                                                ),
-                                                            },
-                                                            App {
-                                                                tag: Static,
-                                                                fun: App {
-                                                                    tag: Static,
-                                                                    fun: App {
-                                                                        tag: Static,
-                                                                        fun: Var {
-                                                                            nam: Name(
-                                                                                "Map/Node",
-                                                                            ),
-                                                                        },
-                                                                        arg: Var {
-                                                                            nam: Name(
-                                                                                "map.value",
-                                                                            ),
-                                                                        },
-                                                                    },
-                                                                    arg: Var {
-                                                                        nam: Name(
-                                                                            "rest",
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                arg: Var {
-                                                                    nam: Name(
-                                                                        "map.right",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                                Let {
-                                                    pat: Fan(
-                                                        Tup,
-                                                        Static,
-                                                        [
-                                                            Var(
-                                                                Some(
-                                                                    Name(
-                                                                        "got",
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            Var(
-                                                                Some(
-                                                                    Name(
-                                                                        "rest",
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ],
-                                                    ),
-                                                    val: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: Var {
-                                                                nam: Name(
-                                                                    "Map/get",
-                                                                ),
-                                                            },
-                                                            arg: Var {
-                                                                nam: Name(
-                                                                    "map.right",
-                                                                ),
-                                                            },
-                                                        },
-                                                        arg: Oper {
-                                                            opr: DIV,
-                                                            fst: Var {
-                                                                nam: Name(
-                                                                    "key",
-                                                                ),
-                                                            },
-                                                            snd: Num {
-                                                                val: U24(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    nxt: Fan {
-                                                        fan: Tup,
-                                                        tag: Static,
-                                                        els: [
-                                                            Var {
-                                                                nam: Name(
-                                                                    "got",
-                                                                ),
-                                                            },
-                                                            App {
-                                                                tag: Static,
-                                                                fun: App {
-                                                                    tag: Static,
-                                                                    fun: App {
-                                                                        tag: Static,
-                                                                        fun: Var {
-                                                                            nam: Name(
-                                                                                "Map/Node",
-                                                                            ),
-                                                                        },
-                                                                        arg: Var {
-                                                                            nam: Name(
-                                                                                "map.value",
-                                                                            ),
-                                                                        },
-                                                                    },
-                                                                    arg: Var {
-                                                                        nam: Name(
-                                                                            "map.left",
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                arg: Var {
-                                                                    nam: Name(
-                                                                        "rest",
-                                                                    ),
-                                                                },
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ],
-                                        },
-                                        Fan {
-                                            fan: Tup,
-                                            tag: Static,
-                                            els: [
-                                                Var {
-                                                    nam: Name(
-                                                        "map.value",
-                                                    ),
-                                                },
-                                                Var {
-                                                    nam: Name(
-                                                        "map",
-                                                    ),
-                                                },
-                                            ],
-                                        },
-                                    ],
-                                },
-                            ),
-                        ],
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "Map/set",
-        ): Definition {
-            name: Name(
-                "Map/set",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "map",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "key",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "value",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Mat {
-                        bnd: Some(
-                            Name(
-                                "map",
-                            ),
-                        ),
-                        arg: Var {
-                            nam: Name(
-                                "map",
-                            ),
-                        },
-                        with_bnd: [],
-                        with_arg: [],
-                        arms: [
-                            (
-                                Some(
-                                    Name(
-                                        "Map/Node",
-                                    ),
-                                ),
-                                [],
-                                Swt {
-                                    bnd: Some(
-                                        Name(
-                                            "_",
-                                        ),
-                                    ),
-                                    arg: Oper {
-                                        opr: EQ,
-                                        fst: Num {
-                                            val: U24(
-                                                0,
-                                            ),
-                                        },
-                                        snd: Var {
-                                            nam: Name(
-                                                "key",
-                                            ),
-                                        },
-                                    },
-                                    with_bnd: [],
-                                    with_arg: [],
-                                    pred: Some(
-                                        Name(
-                                            "_-1",
-                                        ),
-                                    ),
-                                    arms: [
-                                        Swt {
-                                            bnd: Some(
-                                                Name(
-                                                    "_",
-                                                ),
-                                            ),
-                                            arg: Oper {
-                                                opr: REM,
-                                                fst: Var {
-                                                    nam: Name(
-                                                        "key",
-                                                    ),
-                                                },
-                                                snd: Num {
-                                                    val: U24(
-                                                        2,
-                                                    ),
-                                                },
-                                            },
-                                            with_bnd: [],
-                                            with_arg: [],
-                                            pred: Some(
-                                                Name(
-                                                    "_-1",
-                                                ),
-                                            ),
-                                            arms: [
-                                                App {
-                                                    tag: Static,
-                                                    fun: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: Var {
-                                                                nam: Name(
-                                                                    "Map/Node",
-                                                                ),
-                                                            },
-                                                            arg: Var {
-                                                                nam: Name(
-                                                                    "map.value",
-                                                                ),
-                                                            },
-                                                        },
-                                                        arg: App {
-                                                            tag: Static,
-                                                            fun: App {
-                                                                tag: Static,
-                                                                fun: App {
-                                                                    tag: Static,
-                                                                    fun: Var {
-                                                                        nam: Name(
-                                                                            "Map/set",
-                                                                        ),
-                                                                    },
-                                                                    arg: Var {
-                                                                        nam: Name(
-                                                                            "map.left",
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                arg: Oper {
-                                                                    opr: DIV,
-                                                                    fst: Var {
-                                                                        nam: Name(
-                                                                            "key",
-                                                                        ),
-                                                                    },
-                                                                    snd: Num {
-                                                                        val: U24(
-                                                                            2,
-                                                                        ),
-                                                                    },
-                                                                },
-                                                            },
-                                                            arg: Var {
-                                                                nam: Name(
-                                                                    "value",
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    arg: Var {
-                                                        nam: Name(
-                                                            "map.right",
-                                                        ),
-                                                    },
-                                                },
-                                                App {
-                                                    tag: Static,
-                                                    fun: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: Var {
-                                                                nam: Name(
-                                                                    "Map/Node",
-                                                                ),
-                                                            },
-                                                            arg: Var {
-                                                                nam: Name(
-                                                                    "map.value",
-                                                                ),
-                                                            },
-                                                        },
-                                                        arg: Var {
-                                                            nam: Name(
-                                                                "map.left",
-                                                            ),
-                                                        },
-                                                    },
-                                                    arg: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: App {
-                                                                tag: Static,
-                                                                fun: Var {
-                                                                    nam: Name(
-                                                                        "Map/set",
-                                                                    ),
-                                                                },
-                                                                arg: Var {
-                                                                    nam: Name(
-                                                                        "map.right",
-                                                                    ),
-                                                                },
-                                                            },
-                                                            arg: Oper {
-                                                                opr: DIV,
-                                                                fst: Var {
-                                                                    nam: Name(
-                                                                        "key",
-                                                                    ),
-                                                                },
-                                                                snd: Num {
-                                                                    val: U24(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        arg: Var {
-                                                            nam: Name(
-                                                                "value",
-                                                            ),
-                                                        },
-                                                    },
-                                                },
-                                            ],
-                                        },
-                                        App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: App {
-                                                    tag: Static,
-                                                    fun: Var {
-                                                        nam: Name(
-                                                            "Map/Node",
-                                                        ),
-                                                    },
-                                                    arg: Var {
-                                                        nam: Name(
-                                                            "value",
-                                                        ),
-                                                    },
-                                                },
-                                                arg: Var {
-                                                    nam: Name(
-                                                        "map.left",
-                                                    ),
-                                                },
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "map.right",
-                                                ),
-                                            },
-                                        },
-                                    ],
-                                },
-                            ),
-                            (
-                                Some(
-                                    Name(
-                                        "Map/Leaf",
-                                    ),
-                                ),
-                                [],
-                                Swt {
-                                    bnd: Some(
-                                        Name(
-                                            "_",
-                                        ),
-                                    ),
-                                    arg: Oper {
-                                        opr: EQ,
-                                        fst: Num {
-                                            val: U24(
-                                                0,
-                                            ),
-                                        },
-                                        snd: Var {
-                                            nam: Name(
-                                                "key",
-                                            ),
-                                        },
-                                    },
-                                    with_bnd: [],
-                                    with_arg: [],
-                                    pred: Some(
-                                        Name(
-                                            "_-1",
-                                        ),
-                                    ),
-                                    arms: [
-                                        Swt {
-                                            bnd: Some(
-                                                Name(
-                                                    "_",
-                                                ),
-                                            ),
-                                            arg: Oper {
-                                                opr: REM,
-                                                fst: Var {
-                                                    nam: Name(
-                                                        "key",
-                                                    ),
-                                                },
-                                                snd: Num {
-                                                    val: U24(
-                                                        2,
-                                                    ),
-                                                },
-                                            },
-                                            with_bnd: [],
-                                            with_arg: [],
-                                            pred: Some(
-                                                Name(
-                                                    "_-1",
-                                                ),
-                                            ),
-                                            arms: [
-                                                App {
-                                                    tag: Static,
-                                                    fun: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: Var {
-                                                                nam: Name(
-                                                                    "Map/Node",
-                                                                ),
-                                                            },
-                                                            arg: Era,
-                                                        },
-                                                        arg: App {
-                                                            tag: Static,
-                                                            fun: App {
-                                                                tag: Static,
-                                                                fun: App {
-                                                                    tag: Static,
-                                                                    fun: Var {
-                                                                        nam: Name(
-                                                                            "Map/set",
-                                                                        ),
-                                                                    },
-                                                                    arg: Var {
-                                                                        nam: Name(
-                                                                            "Map/Leaf",
-                                                                        ),
-                                                                    },
-                                                                },
-                                                                arg: Oper {
-                                                                    opr: DIV,
-                                                                    fst: Var {
-                                                                        nam: Name(
-                                                                            "key",
-                                                                        ),
-                                                                    },
-                                                                    snd: Num {
-                                                                        val: U24(
-                                                                            2,
-                                                                        ),
-                                                                    },
-                                                                },
-                                                            },
-                                                            arg: Var {
-                                                                nam: Name(
-                                                                    "value",
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    arg: Var {
-                                                        nam: Name(
-                                                            "Map/Leaf",
-                                                        ),
-                                                    },
-                                                },
-                                                App {
-                                                    tag: Static,
-                                                    fun: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: Var {
-                                                                nam: Name(
-                                                                    "Map/Node",
-                                                                ),
-                                                            },
-                                                            arg: Era,
-                                                        },
-                                                        arg: Var {
-                                                            nam: Name(
-                                                                "Map/Leaf",
-                                                            ),
-                                                        },
-                                                    },
-                                                    arg: App {
-                                                        tag: Static,
-                                                        fun: App {
-                                                            tag: Static,
-                                                            fun: App {
-                                                                tag: Static,
-                                                                fun: Var {
-                                                                    nam: Name(
-                                                                        "Map/set",
-                                                                    ),
-                                                                },
-                                                                arg: Var {
-                                                                    nam: Name(
-                                                                        "Map/Leaf",
-                                                                    ),
-                                                                },
-                                                            },
-                                                            arg: Oper {
-                                                                opr: DIV,
-                                                                fst: Var {
-                                                                    nam: Name(
-                                                                        "key",
-                                                                    ),
-                                                                },
-                                                                snd: Num {
-                                                                    val: U24(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                        arg: Var {
-                                                            nam: Name(
-                                                                "value",
-                                                            ),
-                                                        },
-                                                    },
-                                                },
-                                            ],
-                                        },
-                                        App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: App {
-                                                    tag: Static,
-                                                    fun: Var {
-                                                        nam: Name(
-                                                            "Map/Node",
-                                                        ),
-                                                    },
-                                                    arg: Var {
-                                                        nam: Name(
-                                                            "value",
-                                                        ),
-                                                    },
-                                                },
-                                                arg: Var {
-                                                    nam: Name(
-                                                        "Map/Leaf",
-                                                    ),
-                                                },
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "Map/Leaf",
-                                                ),
-                                            },
-                                        },
-                                    ],
-                                },
-                            ),
-                        ],
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "Map/map",
-        ): Definition {
-            name: Name(
-                "Map/map",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Ctr(
-                            Name(
-                                "Map/Leaf",
-                            ),
-                            [],
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "key",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "f",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Var {
-                        nam: Name(
-                            "Map/Leaf",
-                        ),
-                    },
-                },
-                Rule {
-                    pats: [
-                        Ctr(
-                            Name(
-                                "Map/Node",
-                            ),
-                            [
-                                Var(
-                                    Some(
-                                        Name(
-                                            "value",
-                                        ),
-                                    ),
-                                ),
-                                Var(
-                                    Some(
-                                        Name(
-                                            "left",
-                                        ),
-                                    ),
-                                ),
-                                Var(
-                                    Some(
-                                        Name(
-                                            "right",
-                                        ),
-                                    ),
-                                ),
-                            ],
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "key",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "f",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Swt {
-                        bnd: Some(
-                            Name(
-                                "_",
-                            ),
-                        ),
-                        arg: Oper {
-                            opr: EQ,
-                            fst: Num {
-                                val: U24(
-                                    0,
-                                ),
-                            },
-                            snd: Var {
-                                nam: Name(
-                                    "key",
-                                ),
-                            },
-                        },
-                        with_bnd: [],
-                        with_arg: [],
-                        pred: Some(
-                            Name(
-                                "_-1",
-                            ),
-                        ),
-                        arms: [
-                            Swt {
-                                bnd: Some(
-                                    Name(
-                                        "_",
-                                    ),
-                                ),
-                                arg: Oper {
-                                    opr: REM,
-                                    fst: Var {
-                                        nam: Name(
-                                            "key",
-                                        ),
-                                    },
-                                    snd: Num {
-                                        val: U24(
-                                            2,
-                                        ),
-                                    },
-                                },
-                                with_bnd: [],
-                                with_arg: [],
-                                pred: Some(
-                                    Name(
-                                        "_-1",
-                                    ),
-                                ),
-                                arms: [
-                                    App {
-                                        tag: Static,
-                                        fun: App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: Var {
-                                                    nam: Name(
-                                                        "Map/Node",
-                                                    ),
-                                                },
-                                                arg: Var {
-                                                    nam: Name(
-                                                        "value",
-                                                    ),
-                                                },
-                                            },
-                                            arg: App {
-                                                tag: Static,
-                                                fun: App {
-                                                    tag: Static,
-                                                    fun: App {
-                                                        tag: Static,
-                                                        fun: Var {
-                                                            nam: Name(
-                                                                "Map/map",
-                                                            ),
-                                                        },
-                                                        arg: Var {
-                                                            nam: Name(
-                                                                "left",
-                                                            ),
-                                                        },
-                                                    },
-                                                    arg: Oper {
-                                                        opr: DIV,
-                                                        fst: Var {
-                                                            nam: Name(
-                                                                "key",
-                                                            ),
-                                                        },
-                                                        snd: Num {
-                                                            val: U24(
-                                                                2,
-                                                            ),
-                                                        },
-                                                    },
-                                                },
-                                                arg: Var {
-                                                    nam: Name(
-                                                        "f",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        arg: Var {
-                                            nam: Name(
-                                                "right",
-                                            ),
-                                        },
-                                    },
-                                    App {
-                                        tag: Static,
-                                        fun: App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: Var {
-                                                    nam: Name(
-                                                        "Map/Node",
-                                                    ),
-                                                },
-                                                arg: Var {
-                                                    nam: Name(
-                                                        "value",
-                                                    ),
-                                                },
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "left",
-                                                ),
-                                            },
-                                        },
-                                        arg: App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: App {
-                                                    tag: Static,
-                                                    fun: Var {
-                                                        nam: Name(
-                                                            "Map/map",
-                                                        ),
-                                                    },
-                                                    arg: Var {
-                                                        nam: Name(
-                                                            "right",
-                                                        ),
-                                                    },
-                                                },
-                                                arg: Oper {
-                                                    opr: DIV,
-                                                    fst: Var {
-                                                        nam: Name(
-                                                            "key",
-                                                        ),
-                                                    },
-                                                    snd: Num {
-                                                        val: U24(
-                                                            2,
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "f",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                ],
-                            },
-                            App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: App {
-                                        tag: Static,
-                                        fun: Var {
-                                            nam: Name(
-                                                "Map/Node",
-                                            ),
-                                        },
-                                        arg: App {
-                                            tag: Static,
-                                            fun: Var {
-                                                nam: Name(
-                                                    "f",
-                                                ),
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "value",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "left",
-                                        ),
-                                    },
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "right",
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "IO/MAGIC",
-        ): Definition {
-            name: Name(
-                "IO/MAGIC",
-            ),
-            rules: [
-                Rule {
-                    pats: [],
-                    body: Fan {
-                        fan: Tup,
-                        tag: Static,
-                        els: [
-                            Num {
-                                val: U24(
-                                    13683217,
-                                ),
-                            },
-                            Num {
-                                val: U24(
-                                    16719857,
-                                ),
-                            },
-                        ],
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "IO/wrap",
-        ): Definition {
-            name: Name(
-                "IO/wrap",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "x",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: App {
-                        tag: Static,
-                        fun: App {
-                            tag: Static,
-                            fun: Var {
-                                nam: Name(
-                                    "IO/Done",
-                                ),
-                            },
-                            arg: Var {
-                                nam: Name(
-                                    "IO/MAGIC",
-                                ),
-                            },
-                        },
-                        arg: Var {
-                            nam: Name(
-                                "x",
-                            ),
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "IO/bind",
-        ): Definition {
-            name: Name(
-                "IO/bind",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "a",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "b",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Mat {
-                        bnd: Some(
-                            Name(
-                                "a",
-                            ),
-                        ),
-                        arg: Var {
-                            nam: Name(
-                                "a",
-                            ),
-                        },
-                        with_bnd: [],
-                        with_arg: [],
-                        arms: [
-                            (
-                                Some(
-                                    Name(
-                                        "IO/Done",
-                                    ),
-                                ),
-                                [],
-                                Let {
-                                    pat: Var(
-                                        Some(
-                                            Name(
-                                                "b",
-                                            ),
-                                        ),
-                                    ),
-                                    val: App {
-                                        tag: Static,
-                                        fun: Var {
-                                            nam: Name(
-                                                "undefer",
-                                            ),
-                                        },
-                                        arg: Var {
-                                            nam: Name(
-                                                "b",
-                                            ),
-                                        },
-                                    },
-                                    nxt: App {
-                                        tag: Static,
-                                        fun: Var {
-                                            nam: Name(
-                                                "b",
-                                            ),
-                                        },
-                                        arg: Var {
-                                            nam: Name(
-                                                "a.expr",
-                                            ),
-                                        },
-                                    },
-                                },
-                            ),
-                            (
-                                Some(
-                                    Name(
-                                        "IO/Call",
-                                    ),
-                                ),
-                                [],
-                                App {
-                                    tag: Static,
-                                    fun: App {
-                                        tag: Static,
-                                        fun: App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: Var {
-                                                    nam: Name(
-                                                        "IO/Call",
-                                                    ),
-                                                },
-                                                arg: Var {
-                                                    nam: Name(
-                                                        "IO/MAGIC",
-                                                    ),
-                                                },
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "a.func",
-                                                ),
-                                            },
-                                        },
-                                        arg: Var {
-                                            nam: Name(
-                                                "a.argm",
-                                            ),
-                                        },
-                                    },
-                                    arg: Lam {
-                                        tag: Static,
-                                        pat: Var(
-                                            Some(
-                                                Name(
-                                                    "x",
-                                                ),
-                                            ),
-                                        ),
-                                        bod: App {
-                                            tag: Static,
-                                            fun: App {
-                                                tag: Static,
-                                                fun: Var {
-                                                    nam: Name(
-                                                        "IO/bind",
-                                                    ),
-                                                },
-                                                arg: App {
-                                                    tag: Static,
-                                                    fun: Var {
-                                                        nam: Name(
-                                                            "a.cont",
-                                                        ),
-                                                    },
-                                                    arg: Var {
-                                                        nam: Name(
-                                                            "x",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            arg: Var {
-                                                nam: Name(
-                                                    "b",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                },
-                            ),
-                        ],
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "call",
-        ): Definition {
-            name: Name(
-                "call",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "func",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "argm",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: App {
-                        tag: Static,
-                        fun: App {
-                            tag: Static,
-                            fun: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Call",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "func",
-                                    ),
-                                },
-                            },
-                            arg: Var {
-                                nam: Name(
-                                    "argm",
-                                ),
-                            },
-                        },
-                        arg: Lam {
-                            tag: Static,
-                            pat: Var(
-                                Some(
-                                    Name(
-                                        "x",
-                                    ),
-                                ),
-                            ),
-                            bod: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Done",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "x",
-                                    ),
-                                },
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "print",
-        ): Definition {
-            name: Name(
-                "print",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "text",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: App {
-                        tag: Static,
-                        fun: App {
-                            tag: Static,
-                            fun: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Call",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Str {
-                                    val: "PUT_TEXT",
-                                },
-                            },
-                            arg: Var {
-                                nam: Name(
-                                    "text",
-                                ),
-                            },
-                        },
-                        arg: Lam {
-                            tag: Static,
-                            pat: Var(
-                                Some(
-                                    Name(
-                                        "x",
-                                    ),
-                                ),
-                            ),
-                            bod: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Done",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "x",
-                                    ),
-                                },
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "get_time",
-        ): Definition {
-            name: Name(
-                "get_time",
-            ),
-            rules: [
-                Rule {
-                    pats: [],
-                    body: App {
-                        tag: Static,
-                        fun: App {
-                            tag: Static,
-                            fun: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Call",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Str {
-                                    val: "GET_TIME",
-                                },
-                            },
-                            arg: Era,
-                        },
-                        arg: Lam {
-                            tag: Static,
-                            pat: Var(
-                                Some(
-                                    Name(
-                                        "x",
-                                    ),
-                                ),
-                            ),
-                            bod: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Done",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "x",
-                                    ),
-                                },
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "sleep",
-        ): Definition {
-            name: Name(
-                "sleep",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "hi_lo",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: App {
-                        tag: Static,
-                        fun: App {
-                            tag: Static,
-                            fun: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Call",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Str {
-                                    val: "PUT_TIME",
-                                },
-                            },
-                            arg: Var {
-                                nam: Name(
-                                    "hi_lo",
-                                ),
-                            },
-                        },
-                        arg: Lam {
-                            tag: Static,
-                            pat: Var(
-                                Some(
-                                    Name(
-                                        "x",
-                                    ),
-                                ),
-                            ),
-                            bod: App {
-                                tag: Static,
-                                fun: App {
-                                    tag: Static,
-                                    fun: Var {
-                                        nam: Name(
-                                            "IO/Done",
-                                        ),
-                                    },
-                                    arg: Var {
-                                        nam: Name(
-                                            "IO/MAGIC",
-                                        ),
-                                    },
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "x",
-                                    ),
-                                },
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "defer",
-        ): Definition {
-            name: Name(
-                "defer",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "val",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Lam {
-                        tag: Static,
-                        pat: Var(
-                            Some(
-                                Name(
-                                    "x",
-                                ),
-                            ),
-                        ),
-                        bod: App {
-                            tag: Static,
-                            fun: Var {
-                                nam: Name(
-                                    "x",
-                                ),
-                            },
-                            arg: Var {
-                                nam: Name(
-                                    "val",
-                                ),
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "defer_arg",
-        ): Definition {
-            name: Name(
-                "defer_arg",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "defered",
-                                ),
-                            ),
-                        ),
-                        Var(
-                            Some(
-                                Name(
-                                    "arg",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: Lam {
-                        tag: Static,
-                        pat: Var(
-                            Some(
-                                Name(
-                                    "x",
-                                ),
-                            ),
-                        ),
-                        bod: App {
-                            tag: Static,
-                            fun: App {
-                                tag: Static,
-                                fun: Var {
-                                    nam: Name(
-                                        "defered",
-                                    ),
-                                },
-                                arg: Var {
-                                    nam: Name(
-                                        "x",
-                                    ),
-                                },
-                            },
-                            arg: Var {
-                                nam: Name(
-                                    "arg",
-                                ),
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
-            "undefer",
-        ): Definition {
-            name: Name(
-                "undefer",
-            ),
-            rules: [
-                Rule {
-                    pats: [
-                        Var(
-                            Some(
-                                Name(
-                                    "defered",
-                                ),
-                            ),
-                        ),
-                    ],
-                    body: App {
-                        tag: Static,
-                        fun: Var {
-                            nam: Name(
-                                "defered",
-                            ),
-                        },
-                        arg: Lam {
-                            tag: Static,
-                            pat: Var(
-                                Some(
-                                    Name(
-                                        "x",
-                                    ),
-                                ),
-                            ),
-                            bod: Var {
-                                nam: Name(
-                                    "x",
-                                ),
-                            },
-                        },
-                    },
-                },
-            ],
-            builtin: true,
-        },
-        Name(
             "main",
         ): Definition {
             name: Name(
@@ -1843,12 +9,366 @@ Book {
             rules: [
                 Rule {
                     pats: [],
-                    body: Str {
-                        val: "Hello, World!",
+                    body: App {
+                        tag: Static,
+                        fun: App {
+                            tag: Static,
+                            fun: Ref {
+                                nam: Name(
+                                    "String/Cons",
+                                ),
+                            },
+                            arg: Num {
+                                val: U24(
+                                    72,
+                                ),
+                            },
+                        },
+                        arg: App {
+                            tag: Static,
+                            fun: App {
+                                tag: Static,
+                                fun: Ref {
+                                    nam: Name(
+                                        "String/Cons",
+                                    ),
+                                },
+                                arg: Num {
+                                    val: U24(
+                                        101,
+                                    ),
+                                },
+                            },
+                            arg: App {
+                                tag: Static,
+                                fun: App {
+                                    tag: Static,
+                                    fun: Ref {
+                                        nam: Name(
+                                            "String/Cons",
+                                        ),
+                                    },
+                                    arg: Num {
+                                        val: U24(
+                                            108,
+                                        ),
+                                    },
+                                },
+                                arg: App {
+                                    tag: Static,
+                                    fun: App {
+                                        tag: Static,
+                                        fun: Ref {
+                                            nam: Name(
+                                                "String/Cons",
+                                            ),
+                                        },
+                                        arg: Num {
+                                            val: U24(
+                                                108,
+                                            ),
+                                        },
+                                    },
+                                    arg: App {
+                                        tag: Static,
+                                        fun: App {
+                                            tag: Static,
+                                            fun: Ref {
+                                                nam: Name(
+                                                    "String/Cons",
+                                                ),
+                                            },
+                                            arg: Num {
+                                                val: U24(
+                                                    111,
+                                                ),
+                                            },
+                                        },
+                                        arg: App {
+                                            tag: Static,
+                                            fun: App {
+                                                tag: Static,
+                                                fun: Ref {
+                                                    nam: Name(
+                                                        "String/Cons",
+                                                    ),
+                                                },
+                                                arg: Num {
+                                                    val: U24(
+                                                        44,
+                                                    ),
+                                                },
+                                            },
+                                            arg: App {
+                                                tag: Static,
+                                                fun: App {
+                                                    tag: Static,
+                                                    fun: Ref {
+                                                        nam: Name(
+                                                            "String/Cons",
+                                                        ),
+                                                    },
+                                                    arg: Num {
+                                                        val: U24(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                                arg: App {
+                                                    tag: Static,
+                                                    fun: App {
+                                                        tag: Static,
+                                                        fun: Ref {
+                                                            nam: Name(
+                                                                "String/Cons",
+                                                            ),
+                                                        },
+                                                        arg: Num {
+                                                            val: U24(
+                                                                87,
+                                                            ),
+                                                        },
+                                                    },
+                                                    arg: App {
+                                                        tag: Static,
+                                                        fun: App {
+                                                            tag: Static,
+                                                            fun: Ref {
+                                                                nam: Name(
+                                                                    "String/Cons",
+                                                                ),
+                                                            },
+                                                            arg: Num {
+                                                                val: U24(
+                                                                    111,
+                                                                ),
+                                                            },
+                                                        },
+                                                        arg: App {
+                                                            tag: Static,
+                                                            fun: App {
+                                                                tag: Static,
+                                                                fun: Ref {
+                                                                    nam: Name(
+                                                                        "String/Cons",
+                                                                    ),
+                                                                },
+                                                                arg: Num {
+                                                                    val: U24(
+                                                                        114,
+                                                                    ),
+                                                                },
+                                                            },
+                                                            arg: App {
+                                                                tag: Static,
+                                                                fun: App {
+                                                                    tag: Static,
+                                                                    fun: Ref {
+                                                                        nam: Name(
+                                                                            "String/Cons",
+                                                                        ),
+                                                                    },
+                                                                    arg: Num {
+                                                                        val: U24(
+                                                                            108,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                arg: App {
+                                                                    tag: Static,
+                                                                    fun: App {
+                                                                        tag: Static,
+                                                                        fun: Ref {
+                                                                            nam: Name(
+                                                                                "String/Cons",
+                                                                            ),
+                                                                        },
+                                                                        arg: Num {
+                                                                            val: U24(
+                                                                                100,
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                    arg: App {
+                                                                        tag: Static,
+                                                                        fun: App {
+                                                                            tag: Static,
+                                                                            fun: Ref {
+                                                                                nam: Name(
+                                                                                    "String/Cons",
+                                                                                ),
+                                                                            },
+                                                                            arg: Num {
+                                                                                val: U24(
+                                                                                    33,
+                                                                                ),
+                                                                            },
+                                                                        },
+                                                                        arg: Ref {
+                                                                            nam: Name(
+                                                                                "String/Nil",
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
             ],
             builtin: false,
+        },
+        Name(
+            "String/Nil",
+        ): Definition {
+            name: Name(
+                "String/Nil",
+            ),
+            rules: [
+                Rule {
+                    pats: [],
+                    body: Lam {
+                        tag: Static,
+                        pat: Var(
+                            Some(
+                                Name(
+                                    "a",
+                                ),
+                            ),
+                        ),
+                        bod: App {
+                            tag: Static,
+                            fun: Var {
+                                nam: Name(
+                                    "a",
+                                ),
+                            },
+                            arg: Ref {
+                                nam: Name(
+                                    "String/Nil/tag",
+                                ),
+                            },
+                        },
+                    },
+                },
+            ],
+            builtin: true,
+        },
+        Name(
+            "String/Cons",
+        ): Definition {
+            name: Name(
+                "String/Cons",
+            ),
+            rules: [
+                Rule {
+                    pats: [],
+                    body: Lam {
+                        tag: Static,
+                        pat: Var(
+                            Some(
+                                Name(
+                                    "a",
+                                ),
+                            ),
+                        ),
+                        bod: Lam {
+                            tag: Static,
+                            pat: Var(
+                                Some(
+                                    Name(
+                                        "b",
+                                    ),
+                                ),
+                            ),
+                            bod: Lam {
+                                tag: Static,
+                                pat: Var(
+                                    Some(
+                                        Name(
+                                            "c",
+                                        ),
+                                    ),
+                                ),
+                                bod: App {
+                                    tag: Static,
+                                    fun: App {
+                                        tag: Static,
+                                        fun: App {
+                                            tag: Static,
+                                            fun: Var {
+                                                nam: Name(
+                                                    "c",
+                                                ),
+                                            },
+                                            arg: Ref {
+                                                nam: Name(
+                                                    "String/Cons/tag",
+                                                ),
+                                            },
+                                        },
+                                        arg: Var {
+                                            nam: Name(
+                                                "a",
+                                            ),
+                                        },
+                                    },
+                                    arg: Var {
+                                        nam: Name(
+                                            "b",
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            ],
+            builtin: true,
+        },
+        Name(
+            "String/Nil/tag",
+        ): Definition {
+            name: Name(
+                "String/Nil/tag",
+            ),
+            rules: [
+                Rule {
+                    pats: [],
+                    body: Num {
+                        val: U24(
+                            0,
+                        ),
+                    },
+                },
+            ],
+            builtin: true,
+        },
+        Name(
+            "String/Cons/tag",
+        ): Definition {
+            name: Name(
+                "String/Cons/tag",
+            ),
+            rules: [
+                Rule {
+                    pats: [],
+                    body: Num {
+                        val: U24(
+                            1,
+                        ),
+                    },
+                },
+            ],
+            builtin: true,
         },
     },
     adts: {
@@ -2103,5 +623,9 @@ Book {
             "IO",
         ),
     },
-    entrypoint: None,
+    entrypoint: Some(
+        Name(
+            "main",
+        ),
+    ),
 }
