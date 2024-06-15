@@ -1,6 +1,6 @@
 repos:
-- repo: https://github.com/pre-commit/mirrors-rust
-  rev: v0.10.0 # Use the latest stable version of rustfmt and clippy
+- repo: https://github.com/doublify/pre-commit-rust
+  rev: master
   hooks:
-  - id: rustfmt
+  - id: fmt
   - id: cargo-check
