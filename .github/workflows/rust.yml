@@ -31,7 +31,9 @@ jobs:
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: build exe
       run: cargo build --release
-    - uses: actions/upload-artifact@v4
+    - name: Publish release assets
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
-        name: ${{ runner.os }}-binary
-        path: target/release/bend-language-server
+        generate_release_notes: true
+        files: target/release/bend-syntax-highlighter
