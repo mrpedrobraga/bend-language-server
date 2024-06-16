@@ -31,7 +31,7 @@ jobs:
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: build exe
       run: cargo build --release
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: ${{ runner.os }}-binary
         path: target/release/bend-language-server
