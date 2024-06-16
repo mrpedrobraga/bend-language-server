@@ -30,7 +30,7 @@ jobs:
           target/
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: build exe
-      run: cargo run --release
+      run: cargo build --release
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ runner.os }}-binary
