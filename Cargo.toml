@@ -2,6 +2,7 @@
 name = "bend-language-server"
 version = "0.1.0"
 edition = "2021"
+authors = ["mrpedrobraga <mrhenribraga@gmail.com>"]
 description = "Language server for the Bend programming language (WIP)."
 repository = "https://github.com/mrpedrobraga/bend-language-server/"
 
