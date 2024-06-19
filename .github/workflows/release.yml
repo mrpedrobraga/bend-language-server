@@ -3,6 +3,8 @@
 name: Rust
 
 on:
+  push:
+    branches: [main]
   release:
     types: [created]
 
