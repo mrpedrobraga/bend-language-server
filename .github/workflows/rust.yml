@@ -35,7 +35,7 @@ jobs:
       run: cargo build --release
     - name: check file 
       run: |
-        cd /home/runner/work/bend-language-server
+        cd /home/runner/work/bend-language-server/bend-language-server
         ls
       
     - uses: softprops/action-gh-release@v2
