@@ -1,4 +1,5 @@
-# .github/workflows/rust.yml
+# .github/workflows/release.yml
+
 name: Rust
 
 on:
