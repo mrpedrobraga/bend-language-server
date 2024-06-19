@@ -12,10 +12,22 @@ env:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        architecture: [x64, arm64, x86]
 
     steps:
+    - name: Set up runner architecture
+      if: matrix.os == 'windows-latest' && matrix.architecture == 'x86'
+      run: echo "GitHub Actions does not support Windows x86 runners. Skipping this configuration."
     - uses: actions/checkout@v4
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
     - name: Build
       run: cargo build --verbose
     - name: Run tests
@@ -31,7 +43,7 @@ jobs:
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: build exe
       run: cargo run --release
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
-        name: ${{ runner.os }}-binary
+        name: ${{ runner.os }}-${{ matrix.architecture }}-binary
         path: target/release/bend-language-server
