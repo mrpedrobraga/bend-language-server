@@ -33,6 +33,11 @@ jobs:
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: build exe
       run: cargo build --release
+    - name: check file 
+      run: |
+        cd /home/runner/work/bend-language-server
+        ls
+      
     - uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
